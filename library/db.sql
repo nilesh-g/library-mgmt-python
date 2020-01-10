@@ -1,0 +1,14 @@
+CREATE DATABASE library;
+
+USE library;
+
+CREATE TABLE members(id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(40), email VARCHAR(40), phone VARCHAR(16), passwd VARCHAR(12), role VARCHAR(12));
+
+CREATE TABLE payments(id INT PRIMARY KEY AUTO_INCREMENT, memberid INT, amount DECIMAL(10,2), type VARCHAR(20), txtime DATETIME, duedate DATETIME);
+
+CREATE TABLE books(id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(100), author VARCHAR(100), subject VARCHAR(60), price DECIMAL(10,2), isbn VARCHAR(20));
+
+CREATE TABLE copies(id INT PRIMARY KEY AUTO_INCREMENT, bookid INT, rack INT, status VARCHAR(20));
+
+CREATE TABLE issuerecord(id INT PRIMARY KEY AUTO_INCREMENT, copyid INT, memberid INT, issued DATETIME, returndue DATETIME, returned DATETIME, fine DECIMAL(10,2));
+
